@@ -3,10 +3,10 @@ const app = express()
 const port = 3000
 
 //inicio conexion mongo
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient
+const dotenv = require('dotenv').config()
 //const url = "mongodb://root:123456@localhost:27017/"; // Cambia esto si usas Mongo Atlas
-const url = "mongodb+srv://superiorviktor:4hzYZt1lSTcBCycU@cluster0.53l4ojb.mongodb.net/"; // Cambia esto si usas Mongo Atlas
-//const url = process.env.urlMongo;
+const url = process.env.url
 const client = new MongoClient(url, {
     //useNewUrlParser: true,
     //useUnifiedTopology: true,
