@@ -22,6 +22,13 @@ async function obtenerTodosAsync() {
 }
 //fin conexion mongo
 
+app.get("/", (req, res) => {
+    let idDto = {
+        message: "hello world"
+    }
+    res.status(200).json(idDto)
+})
+
 app.get("/api/transactions", async (req, res) => {
     let transactions = []
     let lista = await obtenerTodosAsync()
