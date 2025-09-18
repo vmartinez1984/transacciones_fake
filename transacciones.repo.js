@@ -7,11 +7,15 @@ const client = new MongoClient(url, {
   //useUnifiedTopology: true,
 });
 
-async function obtenerTodosAsync() {
+async function obtenerTodosAsync(numero) {
   await client.connect();
   const db = client.db("Utilidades");
   const collection = db.collection("transacciones");
-  let lista = await collection.find({}).toArray();
+  let lista;
+  if (numero != -1) 
+    lista = await collection.find({}).limit(numero).toArray();
+  else 
+    lista = await collection.find({}).toArray();
 
   return lista;
 }
